@@ -39,10 +39,10 @@ function domoToggle($idx, $grouptype, $onOff = 'On'){
 	return domoApi($query);
 };
 
-//Search through favorites devices from domoticz
+//Search through favorites LIGHT ONLY devices from domoticz
 //Returns as an multi array with only our device (Name, idx, Type)
 function getDevices($requestedDevice){
-        $query = 'type=devices&used=true&filter=all&favorite=1';
+        $query = 'type=devices&used=true&filter=light&favorite=1';
         $devArray = domoApi($query);
         $devicelisting = array();
         foreach($devArray['result'] as $d){
@@ -52,6 +52,20 @@ function getDevices($requestedDevice){
                 }
         };
         return $devicelisting;
+};
+
+// Search all SCENES and GROUPS from Domoticz
+function getScenes($requestedDevice){
+        $query = 'type=scenes&used=true&filter=all&favorite=1';
+        $scnArray = domoApi($query);
+        $scenelisting = array();
+        foreach($sncArray['result'] as $f){
+                if ($requestedDevice == simplifyMatch($f['Name'])) {
+                        $scenelisting[] = array('name'=> $f['Name'],'idx' => $f['idx'], 'type' => $f['Type']);
+                        break;
+                }
+        };
+        return $scenelisting;
 };
 
 //Smish string down into just letters and numbers
@@ -84,10 +98,16 @@ if($_REQUEST['devName']){
 	exit;
 };
 
-//Check for a match in Domoticz
-// Changed to include support for multi array group and scenes
+//Check for a Light device match in Domoticz
 $deviceList = getDevices($requestedDevice);
 $idx = $deviceList[0]['idx'];
+// Seperate search for scenes and groups in Domoticz
+if(!$idx){
+	$deviceList = getScenes($requestedDevice);
+	$idx = $sceneList[0]['idx'];
+}
+
+// Parse result from Domotics Query
 if($idx){
         logLine('Matched on device Name: '.$deviceList[0]['name']);
         logLine('Matched on device IDX:  '.$deviceList[0]['idx']);
