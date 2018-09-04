@@ -4,6 +4,8 @@ Provides a relatively quick and easy way to voice control multiple devices in Do
 
 Added control for GROUPS and SCENES!
 
+For now it only works with Domoticz Favorite devices. Soon also non favorite devices will be supported.
+
 PHP Support:
 Domoticz has NO php support, and all attempts I tried to enable this failed.
 Easy solution is to install Apache webserver on same device as domoticz.
@@ -21,9 +23,10 @@ This worked perfectly for me, and on a Raspberry V3B it runs very fast with no d
 8. Repeat IFTTT step by creating a 2nd applet but now with "Off" and devState=0
 9. Have Fun
 
-## About
-I tried a couple of half-assed solutions for this problem out there... 
-- I started following the Domoticz instructions for IFTTT integration but it was going to take about 100 years for me to add all the devices is wanted in there.
+## About 
+- I started Domoticz to link with IFTTT applets to use Google Home, but after adding 32 devices i stopped.
 
-I found this script mostly out of frustration.
-Now forked this (Thnx DSwinton) and trying to improve it wherever i can.
+I found this script and forked this (Thnx DSwinton for the original!) and trying to improve it wherever i can.
+Github is new for me, so bare with me when I try to merge, pull, push, etc...
+
+Any comments? Please let me know what you think or like to be improved.
