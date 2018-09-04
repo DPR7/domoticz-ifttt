@@ -2,7 +2,7 @@
 
 Provides a relatively quick and easy way to voice control multiple devices in Domoticz using just 2 applets in IFTTT.
 
-NEW NEW NEW --- Control *ALL* Domotics switches, scenes, groups with just 2 simple ifttt applets.
+Added control for GROUPS and SCENES!
 
 PHP Support:
 Domoticz has NO php support, and all attempts I tried to enable this failed.
