@@ -1,16 +1,8 @@
 # domo-ifttt
 
 Provides a relatively quick and easy way to voice control multiple devices in Domoticz using just 2 applets in IFTTT.
-
-Added control for GROUPS and SCENES!
-
-For now it only works with Domoticz Favorite devices. Soon also non favorite devices will be supported.
-
-PHP Support:
-Domoticz has NO php support, and all attempts I tried to enable this failed.
-Easy solution is to install Apache webserver on same device as domoticz.
-Step by Step Apache install on Raspberry: https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md 
-This worked perfectly for me, and on a Raspberry V3B it runs very fast with no delay at all.
+It controls all Light switches (all devices set as switch), Scene's and Groups. 
+Support for devices like dimmers and reading value's from temp etc are on my tasklist.
 
 ## Instructions:
 1. Make sure you have a webserver with PHP support (Domoticz has NO php support!)
@@ -22,6 +14,18 @@ This worked perfectly for me, and on a Raspberry V3B it runs very fast with no d
 7. If it's working locally, it's time to set up IFTTT - check "README - IFTTT Setup.pdf" for instructions
 8. Repeat IFTTT step by creating a 2nd applet but now with "Off" and devState=0
 9. Have Fun
+
+## Changes:
+- Added Group and Scene support.
+- Optimised (faster) Domoticz Query
+- Optional search favorite devices Only or ALL (can be set as option in top PHP file)
+
+## Problems / Solutions:
+### PHP file not working / Domoticz Offline message.
+- Domoticz has no PHP support, install Apache or another webserver (advice: on the same device) and put this script in there.
+Apache runs perfectly if installed on Raspberry with Domoticz besides it.
+It will run fast and without delay.
+Apache on Raspberry setup instructions: [klik here](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) 
 
 ## About 
 - I started Domoticz to link with IFTTT applets to use Google Home, but after adding 32 devices i stopped.
