@@ -6,12 +6,6 @@ Added control for GROUPS and SCENES!
 
 For now it only works with Domoticz Favorite devices. Soon also non favorite devices will be supported.
 
-PHP Support:
-Domoticz has NO php support, and all attempts I tried to enable this failed.
-Easy solution is to install Apache webserver on same device as domoticz.
-Step by Step Apache install on Raspberry: https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md 
-This worked perfectly for me, and on a Raspberry V3B it runs very fast with no delay at all.
-
 ## Instructions:
 1. Make sure you have a webserver with PHP support (Domoticz has NO php support!)
 2. Install this PHP file on a web server (prefered running on the same box as Domoticz).
@@ -22,6 +16,11 @@ This worked perfectly for me, and on a Raspberry V3B it runs very fast with no d
 7. If it's working locally, it's time to set up IFTTT - check "README - IFTTT Setup.pdf" for instructions
 8. Repeat IFTTT step by creating a 2nd applet but now with "Off" and devState=0
 9. Have Fun
+
+## Changes:
+- Added Group and Scene support.
+- Faster Domoticz Query
+- Optional search favorite devices Only or ALL (can be set as option in top PHP file)
 
 ## Problems / Solutions:
 ### PHP file not working / Domoticz Offline message.
