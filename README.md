@@ -23,6 +23,13 @@ This worked perfectly for me, and on a Raspberry V3B it runs very fast with no d
 8. Repeat IFTTT step by creating a 2nd applet but now with "Off" and devState=0
 9. Have Fun
 
+## Problems / Solutions:
+### PHP file not working / Domoticz Offline message.
+- Domoticz has no PHP support, install Apache or another webserver (advice: on the same device) and put this script in there.
+Apache runs perfectly if installed on Raspberry with Domoticz besides it.
+It will run fast and without delay.
+Apache on Raspberry setup instructions: [klik here](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) 
+
 ## About 
 - I started Domoticz to link with IFTTT applets to use Google Home, but after adding 32 devices i stopped.
 
