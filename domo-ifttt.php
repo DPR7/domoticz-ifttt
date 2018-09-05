@@ -8,6 +8,9 @@ define('DOMO_SERVER', 'http://127.0.0.1:9090');
 // This password is used in the IFTTT Applets.
 define('PASSKEY', 'superSecretPasswordOnlyIFTTknows');
 
+// Use favorites only, or ALL devices (1 or 0).
+define('FAVONLY', '1');
+
 // *** DO NOT EDIT PASSED THIS LINE ***
 if($_REQUEST['passkey'] <> PASSKEY){
 	logLine('Invalid passkey');
@@ -42,7 +45,7 @@ function domoToggle($idx, $grouptype, $onOff = 'On'){
 //Search through favorites LIGHT ONLY devices from domoticz
 //Returns as an multi array with only our device (Name, idx, Type)
 function getDevices($requestedDevice){
-        $query = 'type=devices&used=true&filter=light&favorite=1';
+        $query = 'type=devices&used=true&filter=light&favorite='.FAVONLY;
         $devArray = domoApi($query);
         $devicelisting = array();
         foreach($devArray['result'] as $d){
@@ -56,7 +59,7 @@ function getDevices($requestedDevice){
 
 // Search all SCENES and GROUPS from Domoticz
 function getScenes($requestedDevice){
-        $query = 'type=scenes&used=true&filter=all&favorite=1';
+        $query = 'type=scenes&used=true&filter=all&favorite='.FAVONLY;
         $scnArray = domoApi($query);
         $scenelisting = array();
         foreach($sncArray['result'] as $f){
