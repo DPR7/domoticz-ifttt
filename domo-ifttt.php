@@ -1,14 +1,14 @@
 <?php
 // *** Change settings for your Domoticz Server here:
 // Protocol, IP/hostname and Port for Domoticz
-define('DOMO_SERVER', 'http://127.0.0.1:7080');
+define('DOMO_SERVER', 'http://127.0.0.1:9090');
 
 // *** Change settings for your Secret password here:
 // This password is used in the IFTTT Applets.
-define('PASSKEY', 'mYh1dden8ss452XxxxXXX');
+define('PASSKEY', 'superSecretPasswordOnlyIFTTknows');
 
 // Use favorites only, or ALL devices (1 or 0).
-define('FAVONLY', '0');
+define('FAVONLY', '1');
 
 // *** DO NOT EDIT PASSED THIS LINE ***
 if($_REQUEST['passkey'] <> PASSKEY){
@@ -23,10 +23,10 @@ function logLine($line){
 
 //Ping the domoticz API
 function domoApi($query){
-	$apiUrl = DOMO_SERVER.'/json.htm?'.$query;
-	$json = file_get_contents($apiUrl);
-	$array = json_decode($json, true);
-	return $array;
+        $apiUrl = DOMO_SERVER.'/json.htm?'.$query;
+        $json = file_get_contents($apiUrl);
+        $array = json_decode($json, true);
+        return $array;
 };
 
 //Toogle state for a device, group, or scene
