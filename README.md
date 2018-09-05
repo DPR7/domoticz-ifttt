@@ -1,8 +1,13 @@
 # domo-ifttt
 
 Provides a relatively quick and easy way to voice control multiple devices in Domoticz using just 2 applets in IFTTT.
+
+
+Added control for GROUPS and SCENES!
+=======
 It controls all Light switches (all devices set as switch), Scene's and Groups. 
 Support for devices like dimmers and reading value's from temp etc are on my tasklist.
+
 
 ## Instructions:
 1. Make sure you have a webserver with PHP support (Domoticz has NO php support!)
@@ -17,7 +22,9 @@ Support for devices like dimmers and reading value's from temp etc are on my tas
 
 ## Changes:
 - Added Group and Scene support.
+
 - Optimised (faster) Domoticz Query
+
 - Optional search favorite devices Only or ALL (can be set as option in top PHP file)
 
 ## Problems / Solutions:
